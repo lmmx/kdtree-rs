@@ -1,0 +1,8 @@
+[package]
+name = "kdtree-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+kiddo = "4.2.0"
+npyz = "0.8.3"
