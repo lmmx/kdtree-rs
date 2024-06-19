@@ -32,19 +32,19 @@ fn main() {
     let (data, _dimension) = read_npy_file();
     println!("Loaded npy file in {:.2?}s", start.elapsed().as_secs_f64());
     let start = Instant::now();
-    let _kdtree = build_16d_kdtree(data);
+    let _kdtree = build_128d_kdtree(data);
     println!("Built kd tree in {:.2?}s", start.elapsed().as_secs_f64());
 }
 
-fn build_16d_kdtree(data: Vec<f64>) -> KdTree<f64, 16> {
-    let dimension = 16;
+fn build_128d_kdtree(data: Vec<f64>) -> KdTree<f64, 128> {
+    let dimension = 128;
     let num_samples = data.len() / dimension;
-    let mut tree = KdTree::<f64, 16>::new();
+    let mut tree = KdTree::<f64, 128>::new();
 
     for i in 0..num_samples {
         let start = i * dimension;
         let end = start + dimension;
-        let point: [f64; 16] = data[start..end].try_into().unwrap();
+        let point: [f64; 128] = data[start..end].try_into().unwrap();
         tree.add(&point, i as u64);
     }
 

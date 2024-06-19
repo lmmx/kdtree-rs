@@ -33,3 +33,15 @@ Python:
 
 - Loaded npy file in 0.25 seconds
 - Built KDTree in 6.00 seconds
+
+### 5M 128D vectors
+
+Rust:
+
+- Loaded npy file in 6.10s
+- Built kd tree in 8.26s
+
+Python:
+
+- Loaded npy file in 2.51 seconds
+- Built KDTree in 20.15 seconds
