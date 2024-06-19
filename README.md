@@ -1,5 +1,11 @@
 # kdtree-rs
 
+## Result
+
+Rust version with npyz/kiddo is 3x faster than numpy/scipy in Python
+
+## Benchmarking
+
 Test file:
 
 - `dev_vectors.npy` with shape: [750000, 16]
