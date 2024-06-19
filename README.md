@@ -15,7 +15,7 @@ Test file:
 Rust: `cargo run --release`
 
 - Loaded npy file in 0.09s
-- Built kd tree in 0.26s
+- Built kd tree in 0.32s
 
 Python: `python scipy_bench.py`
 
@@ -27,7 +27,7 @@ Python: `python scipy_bench.py`
 Rust:
 
 - Loaded npy file in 0.43s
-- Built kd tree in 1.32s
+- Built kd tree in 2.18s
 
 Python:
 

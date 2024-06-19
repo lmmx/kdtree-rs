@@ -39,14 +39,14 @@ fn main() {
 fn build_16d_kdtree(data: Vec<f64>) -> KdTree<f64, 16> {
     let dimension = 16;
     let num_samples = data.len() / dimension;
-    let mut points = Vec::with_capacity(num_samples);
+    let mut tree = KdTree::<f64, 16>::new();
 
     for i in 0..num_samples {
         let start = i * dimension;
         let end = start + dimension;
-        let point = data[start..end].to_vec();
-        points.push(point);
+        let point: [f64; 16] = data[start..end].try_into().unwrap();
+        tree.add(&point, i as u64);
     }
 
-    KdTree::new()
+    tree
 }
