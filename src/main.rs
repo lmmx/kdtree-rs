@@ -1,4 +1,5 @@
-// use kiddo::KdTree;
+use std::time::Instant;
+use kiddo::KdTree;
 use std::env;
 use std::path::Path;
 use npyz::NpyFile;
@@ -15,24 +16,37 @@ fn get_vector_path() -> Result<String, String> {
     Ok(file_path.to_str().expect("File path not str coercible").to_string())
 }
 
-fn read_npy_file() -> Vec<f64> {
+fn read_npy_file() -> (Vec<f64>, u64) {
     let file_path = get_vector_path().unwrap();
     let reader = std::io::BufReader::new(std::fs::File::open(&file_path).unwrap());
     let npy = NpyFile::new(reader).unwrap();
     let shape = npy.shape();
     println!("npy loaded with shape: {:?}", shape);
-    npy.into_vec().unwrap()
+    let _n = shape[0]; // number of samples
+    let m = shape[1]; // vector dimension
+    (npy.into_vec().unwrap(), m)
 }
 
 fn main() {
-    let _data = read_npy_file();
-    // let kdtree = build_kdtree(data, dimensions);
+    let start = Instant::now();
+    let (data, _dimension) = read_npy_file();
+    println!("Loaded npy file in {:.2?}s", start.elapsed().as_secs_f64());
+    let start = Instant::now();
+    let _kdtree = build_16d_kdtree(data);
+    println!("Built kd tree in {:.2?}s", start.elapsed().as_secs_f64());
 }
 
-// fn build_kdtree(data: Vec<Vec<f64>>, dimensions: usize) -> KdTree<f64, u32> {
-//     let mut tree = KdTree::new_with_dimensions(dimensions);
-//     for (i, point) in data.iter().enumerate() {
-//         tree.add(point.as_slice(), i as u32).expect("Failed to add point to KD-tree");
-//     }
-//     tree
-// }
+fn build_16d_kdtree(data: Vec<f64>) -> KdTree<f64, 16> {
+    let dimension = 16;
+    let num_samples = data.len() / dimension;
+    let mut points = Vec::with_capacity(num_samples);
+
+    for i in 0..num_samples {
+        let start = i * dimension;
+        let end = start + dimension;
+        let point = data[start..end].to_vec();
+        points.push(point);
+    }
+
+    KdTree::new()
+}

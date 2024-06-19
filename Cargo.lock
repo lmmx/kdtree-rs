@@ -168,7 +168,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "kdtree_rust"
+name = "kdtree-rs"
 version = "0.1.0"
 dependencies = [
  "kiddo",
