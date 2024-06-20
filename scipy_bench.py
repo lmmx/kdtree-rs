@@ -2,7 +2,7 @@ import pickle
 import time
 
 import numpy as np
-from scipy.spatial import KDTree
+from scipy.spatial import KDTree, cKDTree
 
 # from sklearn.neighbors import BallTree
 
@@ -13,6 +13,10 @@ def read_npy_file(filepath):
 
 def build_kdtree(data):
     return KDTree(data)
+
+
+def build_ckdtree(data):
+    return cKDTree(data)
 
 
 def build_ball_tree(data):
@@ -37,6 +41,11 @@ def main():
     kdtree = build_kdtree(data)
     build_time = time.time() - start_time
     print(f"Built KDTree in {build_time:.2f} seconds")
+
+    start_time = time.time()
+    ckdtree = build_ckdtree(data)
+    build_time = time.time() - start_time
+    print(f"Built cKDTree in {build_time:.2f} seconds")
 
     start_time = time.time()
     with open("kdtree.pkl", "wb") as f:
