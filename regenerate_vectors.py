@@ -1,6 +1,6 @@
 import numpy as np
 
-# Generate a random float64 array of shape (5000000, 16)
+# Generate a random float64 array
 random_array = np.random.rand(1000000, 128).astype(np.float64)
 
 # Save the array as a .npy file
