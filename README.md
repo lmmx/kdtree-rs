@@ -52,10 +52,12 @@ Python:
 
 Rust:
 
-- Loaded npy file in 6.10s
-- Built kd tree in 8.26s
+- Loaded npy file in 3.21s
+- Built kd tree in 9.81s
 
 Python:
 
-- Loaded npy file in 2.51 seconds
-- Built KDTree in 20.15 seconds
+- Loaded npy file in 3.82 seconds
+- Built KDTree in 28.77 seconds
+- Serialised KDTree in 10.35 seconds
+- Reloaded KDTree in 3.38 seconds
