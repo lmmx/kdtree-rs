@@ -15,7 +15,7 @@ Test file:
 Rust: `cargo run --release`
 
 - Loaded npy file in 0.09s
-- Built kd tree in 0.26s
+- Built kd tree in 0.32s
 
 Python: `python scipy_bench.py`
 
@@ -27,7 +27,7 @@ Python: `python scipy_bench.py`
 Rust:
 
 - Loaded npy file in 0.43s
-- Built kd tree in 1.32s
+- Built kd tree in 2.18s
 
 Python:
 
@@ -35,6 +35,8 @@ Python:
 - Built KDTree in 6.00 seconds
 
 ### 1M 100D vectors
+
+(TODO: recreate)
 
 Rust:
 
@@ -46,3 +48,15 @@ Python:
 - Loaded npy file in 1.86 seconds
 - Built KDTree in 3.33 seconds (SciPy)
 - Built Annoy index in 8.33 seconds (Annoy)
+
+### 5M 128D vectors
+
+Rust:
+
+- Loaded npy file in 6.10s
+- Built kd tree in 8.26s
+
+Python:
+
+- Loaded npy file in 2.51 seconds
+- Built KDTree in 20.15 seconds
