@@ -36,18 +36,17 @@ Python:
 
 ### 1M 100D vectors
 
-(TODO: recreate)
-
 Rust:
 
-- Loaded npy file in 0.67s
-- Built kd tree in 0.52s
+- Loaded npy file in 0.70s
+- Built kd tree in 1.53s
 
 Python:
 
-- Loaded npy file in 1.86 seconds
-- Built KDTree in 3.33 seconds (SciPy)
-- Built Annoy index in 8.33 seconds (Annoy)
+- Loaded npy file in 0.31 seconds
+- Built KDTree in 4.27 seconds
+- Serialised KDTree in 1.63 seconds
+- Reloaded KDTree in 0.20 seconds
 
 ### 5M 128D vectors
 
