@@ -34,6 +34,21 @@ Python:
 - Loaded npy file in 0.25 seconds
 - Built KDTree in 6.00 seconds
 
+### 1M 100D vectors
+
+(TODO: recreate)
+
+Rust:
+
+- Loaded npy file in 0.67s
+- Built kd tree in 0.52s
+
+Python:
+
+- Loaded npy file in 1.86 seconds
+- Built KDTree in 3.33 seconds (SciPy)
+- Built Annoy index in 8.33 seconds (Annoy)
+
 ### 5M 128D vectors
 
 Rust:
